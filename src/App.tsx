@@ -9,6 +9,11 @@ import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 
+// Admin
+import AdminLayout from './layouts/AdminLayout';
+import OrdersAdmin from './pages/admin/Orders';
+import ProductsAdmin from './pages/admin/Products';
+
 function App() {
   return (
     <AuthProvider>
@@ -21,6 +26,12 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/success" element={<Success />} />
+          
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="orders" element={<OrdersAdmin />} />
+            <Route path="products" element={<ProductsAdmin />} />
+          </Route>
         </Routes>
       </Router>
     </CartProvider>

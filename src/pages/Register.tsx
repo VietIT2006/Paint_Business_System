@@ -29,11 +29,7 @@ const Register: React.FC = () => {
     }
 
     if (data.user) {
-      // Cập nhật thông tin profile cơ bản (Tên) vào bảng profiles
-      // Lưu ý: bảng profiles đã được setup RLS và trigger tự động tạo row, 
-      // ta có thể update lại tên hoặc chèn tuỳ cấu hình. 
-      // Tạm thời hiển thị alert thành công
-      alert('Đăng ký thành công! Vui lòng đăng nhập.');
+      alert('Đăng ký thành công! Vui lòng kiểm tra hộp thư Email của bạn để xác nhận tài khoản trước khi đăng nhập.');
       navigate('/login');
     }
   };
