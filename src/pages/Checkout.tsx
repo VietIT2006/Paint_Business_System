@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { useAuth } from '../context/AuthContext';
 import Header from '../components/Header';
 
 const Checkout: React.FC = () => {
   const { cart, cartTotal, clearCart } = useCart();
+  const { user } = useAuth();
   const navigate = useNavigate();
 
   const [formData, setFormData] = useState({
@@ -29,6 +31,7 @@ const Checkout: React.FC = () => {
 
     const orderData = {
       ...formData,
+      user_id: user ? user.id : undefined,
       total_amount: cartTotal,
       items: cart.map(item => ({
         product_id: item.product.id,

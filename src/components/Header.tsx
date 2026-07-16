@@ -18,6 +18,9 @@ const Header: React.FC = () => {
               <span style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>
                 Xin chào, <strong>{user.email}</strong>
               </span>
+              <Link to="/my-orders" className="btn" style={{ background: 'transparent', color: 'var(--text-main)', border: '1px solid var(--border)', display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', textDecoration: 'none' }}>
+                Đơn hàng của tôi
+              </Link>
               <Link to="/admin/orders" className="btn" style={{ background: 'transparent', color: 'var(--primary)', border: '1px solid var(--primary)', display: 'flex', alignItems: 'center', gap: '8px', padding: '8px 12px', textDecoration: 'none' }}>
                 Trang Quản trị
               </Link>

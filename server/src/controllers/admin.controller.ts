@@ -28,8 +28,21 @@ export const updateOrderStatus = async (req: Request, res: Response) => {
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
-    const products = await adminService.getAllProductsAdmin();
-    res.status(200).json({ success: true, data: products });
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 20;
+
+    const { data, count } = await adminService.getAllProductsAdmin(page, limit);
+    const totalPages = count ? Math.ceil(count / limit) : 0;
+
+    res.status(200).json({ 
+      success: true, 
+      data,
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalItems: count
+      }
+    });
   } catch (error: any) {
     res.status(500).json({ success: false, message: error.message });
   }

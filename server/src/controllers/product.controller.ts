@@ -3,8 +3,21 @@ import * as productService from '../services/product.service';
 
 export const getProducts = async (req: Request, res: Response) => {
   try {
-    const products = await productService.getAllProducts();
-    res.status(200).json({ success: true, data: products });
+    const page = parseInt(req.query.page as string) || 1;
+    const limit = parseInt(req.query.limit as string) || 12;
+
+    const { data, count } = await productService.getAllProducts(page, limit);
+    const totalPages = count ? Math.ceil(count / limit) : 0;
+
+    res.status(200).json({ 
+      success: true, 
+      data, 
+      pagination: {
+        currentPage: page,
+        totalPages,
+        totalItems: count
+      }
+    });
   } catch (error: any) {
     res.status(500).json({ success: false, message: error.message });
   }

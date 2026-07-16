@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
+import MyOrders from './pages/MyOrders';
 
 // Admin
 import AdminLayout from './layouts/AdminLayout';
@@ -26,6 +27,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/my-orders" element={<MyOrders />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>

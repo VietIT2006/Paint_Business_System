@@ -36,16 +36,20 @@ export const updateOrderStatus = async (orderId: string, status: string) => {
 };
 
 // Lấy danh sách sản phẩm (Dành cho admin để quản lý)
-export const getAllProductsAdmin = async () => {
-  const { data, error } = await supabase
+export const getAllProductsAdmin = async (page: number = 1, limit: number = 20) => {
+  const from = (page - 1) * limit;
+  const to = from + limit - 1;
+
+  const { data, error, count } = await supabase
     .from('products')
-    .select('*, categories(id, name)')
-    .order('created_at', { ascending: false });
+    .select('*, categories(id, name)', { count: 'exact' })
+    .order('created_at', { ascending: false })
+    .range(from, to);
 
   if (error) {
     throw new Error(error.message);
   }
-  return data;
+  return { data, count };
 };
 
 // Thêm sản phẩm mới

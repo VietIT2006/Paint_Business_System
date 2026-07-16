@@ -20,3 +20,16 @@ export const createNewOrder = async (req: Request, res: Response) => {
     res.status(500).json({ success: false, message: error.message });
   }
 };
+
+export const getMyOrders = async (req: Request, res: Response) => {
+  try {
+    const { userId } = req.params;
+    if (!userId) {
+      return res.status(400).json({ success: false, message: 'Missing userId' });
+    }
+    const orders = await orderService.getOrdersByUser(userId);
+    res.status(200).json({ success: true, data: orders });
+  } catch (error: any) {
+    res.status(500).json({ success: false, message: error.message });
+  }
+};
