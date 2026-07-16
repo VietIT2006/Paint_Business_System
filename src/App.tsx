@@ -9,6 +9,7 @@ import Register from './pages/Register';
 import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 import MyOrders from './pages/MyOrders';
+import SplashScreen from './components/SplashScreen';
 
 // Admin
 import AdminLayout from './layouts/AdminLayout';
@@ -20,6 +21,7 @@ function App() {
     <AuthProvider>
       <CartProvider>
         <Router>
+          <SplashScreen />
           <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/product/:id" element={<ProductDetail />} />
