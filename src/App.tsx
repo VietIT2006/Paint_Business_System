@@ -10,6 +10,7 @@ import Checkout from './pages/Checkout';
 import Success from './pages/Success';
 import MyOrders from './pages/MyOrders';
 import SplashScreen from './components/SplashScreen';
+import AIAssistant from './pages/AIAssistant';
 
 // Admin
 import AdminLayout from './layouts/AdminLayout';
@@ -30,6 +31,7 @@ function App() {
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/success" element={<Success />} />
           <Route path="/my-orders" element={<MyOrders />} />
+          <Route path="/my-orders" element={<MyOrders />} />
           
           {/* Admin Routes */}
           <Route path="/admin" element={<AdminLayout />}>
@@ -37,6 +39,7 @@ function App() {
             <Route path="products" element={<ProductsAdmin />} />
           </Route>
         </Routes>
+        <AIAssistant />
       </Router>
     </CartProvider>
     </AuthProvider>

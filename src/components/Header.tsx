@@ -11,7 +11,9 @@ const Header: React.FC = () => {
   return (
     <header className="header">
       <div className="container header-content">
-        <Link to="/" className="logo">PaintLuxury</Link>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '30px' }}>
+          <Link to="/" className="logo">PaintLuxury</Link>
+        </div>
         <nav style={{ display: 'flex', alignItems: 'center', gap: '16px' }}>
           {user ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '15px' }}>

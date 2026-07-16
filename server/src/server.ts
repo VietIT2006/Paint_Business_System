@@ -7,6 +7,7 @@ import categoryRoutes from './routes/category.routes';
 import productRoutes from './routes/product.routes';
 import orderRoutes from './routes/order.routes';
 import adminRoutes from './routes/admin.routes';
+import aiRoutes from './routes/ai.routes';
 
 // Nạp các biến môi trường từ file .env
 dotenv.config();
@@ -24,6 +25,7 @@ app.use('/api/categories', categoryRoutes);
 app.use('/api/products', productRoutes);
 app.use('/api/orders', orderRoutes);
 app.use('/api/admin', adminRoutes);
+app.use('/api/ai', aiRoutes);
 
 // Routes cơ bản
 app.get('/', (req: Request, res: Response) => {
