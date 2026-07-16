@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import Header from '../components/Header';
 import { useCart } from '../context/CartContext';
 import type { Product } from '../context/CartContext';
+import RichTextWithTOC from '../components/RichTextWithTOC';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -66,12 +67,8 @@ const ProductDetail: React.FC = () => {
             <p style={{ fontSize: '2rem', fontWeight: 'bold', color: 'var(--text-main)', marginBottom: '20px' }}>
               {formattedPrice}
             </p>
-            <p style={{ color: 'var(--text-muted)', fontSize: '1.1rem', lineHeight: '1.6', marginBottom: '30px' }}>
-              {/* @ts-ignore */}
-              {product.description || 'Sản phẩm sơn cao cấp.'}
-            </p>
             
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '30px' }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '20px', marginBottom: '30px', marginTop: '10px' }}>
               <div style={{ display: 'flex', alignItems: 'center', border: '1px solid var(--border)', borderRadius: 'var(--radius-md)' }}>
                 <button 
                   onClick={() => setQuantity(Math.max(1, quantity - 1))}
@@ -94,6 +91,10 @@ const ProductDetail: React.FC = () => {
             </div>
           </div>
         </div>
+
+        {/* Bổ sung phần Mô tả chi tiết với MỤC LỤC */}
+        <RichTextWithTOC htmlContent={(product as any).description || ''} />
+
       </div>
     </>
   );

@@ -125,8 +125,8 @@ const ProductFormModal: React.FC<ProductFormModalProps> = ({ isOpen, onClose, pr
           </div>
 
           <div>
-            <label style={{ display: 'block', marginBottom: '5px' }}>Mô tả</label>
-            <textarea name="description" value={formData.description} onChange={handleChange} rows={3} style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }}></textarea>
+            <label style={{ display: 'block', marginBottom: '5px' }}>Mô tả chi tiết (Hỗ trợ mã HTML: &lt;h2&gt;, &lt;p&gt;, &lt;strong&gt;...)</label>
+            <textarea name="description" value={formData.description} onChange={handleChange} rows={15} style={{ width: '100%', padding: '10px', borderRadius: 'var(--radius-sm)', border: '1px solid var(--border)' }} placeholder="Ví dụ: <h2>Chất Chống Thấm Là Gì</h2><p>Nội dung...</p>"></textarea>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: '10px' }}>
